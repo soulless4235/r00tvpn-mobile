@@ -19,7 +19,8 @@ def escape_property(text):
 
 
 def main(path):
-    suites, tests, errors, failed = {}, {}, {}, []
+    sys.stdout.reconfigure(encoding="utf-8")
+    suites, tests, errors, prints, failed = {}, {}, {}, {}, []
     with open(path, encoding="utf-8") as report:
         for line in report:
             try:
@@ -33,6 +34,10 @@ def main(path):
                 tests[event["test"]["id"]] = event["test"]
             elif kind == "error":
                 errors.setdefault(event["testID"], []).append(event.get("error", ""))
+            # A widget test prints the exception it caught and fails with a
+            # generic "see the logs above"
+            elif kind == "print" and "testID" in event:
+                prints.setdefault(event["testID"], []).append(event.get("message", ""))
             elif kind == "testDone" and event.get("result") != "success":
                 failed.append(event["testID"])
 
@@ -42,7 +47,8 @@ def main(path):
         test = tests.get(test_id, {})
         suite = os.path.relpath(suites.get(test.get("suiteID"), ""), root)
         name = test.get("name") or "(unknown test)"
-        message = "\n".join(errors.get(test_id, [])).strip() or "failed"
+        message = "\n".join(prints.get(test_id, []) + errors.get(test_id, []))
+        message = message.strip() or "failed"
         rows.append((suite, name, message))
 
     for suite, name, message in rows[:MAX_ANNOTATIONS]:
