@@ -96,7 +96,7 @@ class CoreController {
   }
 
   /// An age-encrypted config is rewritten in place into its plaintext, and a
-  /// share-link list into a config of its proxies.
+  /// share-link list into a config of its proxies in one group.
   Future<String> validateProfile(
     String path, [
     String ageSecretKey = '',
@@ -123,7 +123,9 @@ class CoreController {
     if (proxies.isEmpty) {
       return message;
     }
-    await file.safeWriteAsString(await encodeYamlTask({'proxies': proxies}));
+    await file.safeWriteAsString(
+      await encodeYamlTask(shareLinkConfig(proxies)),
+    );
     return validateConfig(path);
   }
 

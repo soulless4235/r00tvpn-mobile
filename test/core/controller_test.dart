@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:fl_clash/common/exception.dart';
+import 'package:fl_clash/common/share_link.dart';
 import 'package:fl_clash/core/controller.dart';
 import 'package:fl_clash/core/desktop/model.dart';
 import 'package:fl_clash/core/interface.dart';
@@ -9,6 +10,7 @@ import 'package:fl_clash/enum/enum.dart';
 import 'package:fl_clash/models/models.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
+import 'package:yaml/yaml.dart';
 
 class MockCoreHandlerInterface extends Mock implements CoreHandlerInterface {}
 
@@ -153,6 +155,38 @@ void main() {
         verifyNever(() => mock.decryptConfig(any(), any()));
         expect(File(path).readAsStringSync(), 'proxies: []');
       });
+
+      test(
+        'puts the proxies of share links in one group all traffic matches',
+        () async {
+          File(path).writeAsStringSync('dmxlc3M6Ly8=');
+          var checks = 0;
+          when(
+            () => mock.validateConfig(path),
+          ).thenAnswer((_) async => checks++ == 0 ? 'not a config' : '');
+          when(() => mock.convertProxies(path)).thenAnswer(
+            (_) async => [
+              {'name': 'NL', 'type': 'vless'},
+              {'name': 'DE', 'type': 'hysteria2'},
+            ],
+          );
+
+          expect(await controller.validateProfile(path), '');
+          final config = loadYaml(File(path).readAsStringSync()) as Map;
+          expect(
+            [for (final proxy in config['proxies'] as List) proxy['name']],
+            ['NL', 'DE'],
+          );
+          expect(config['proxy-groups'], [
+            {
+              'name': shareLinkGroupName,
+              'type': 'select',
+              'proxies': ['NL', 'DE'],
+            },
+          ]);
+          expect(config['rules'], ['MATCH,$shareLinkGroupName']);
+        },
+      );
     });
 
     test('updateConfig delegates to interface', () async {

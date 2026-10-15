@@ -407,7 +407,7 @@ class ProfilesAction extends _$ProfilesAction {
   Future<Profile> _fromShareLinks(Profile profile, List<String> links) async {
     final appLocalizations = currentAppLocalizations;
     final decoded = await _core.decodeShareLinks(links);
-    final taken = {...reservedCustomProxyNames};
+    final taken = {...reservedCustomProxyNames, shareLinkGroupName};
     final proxies = <Map<String, dynamic>>[];
     for (final (index, definitions) in decoded.indexed) {
       if (definitions.isEmpty) {
@@ -426,7 +426,7 @@ class ProfilesAction extends _$ProfilesAction {
     final label = proxies.length == 1
         ? first
         : appLocalizations.proxiesProfileLabel(first, proxies.length);
-    final config = await encodeYamlTask({'proxies': proxies});
+    final config = await encodeYamlTask(shareLinkConfig(proxies));
     return profile
         .copyWith(label: profile.label.takeFirstValid([label]))
         .saveFile(

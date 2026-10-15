@@ -49,6 +49,7 @@ export 'request.dart';
 export 'scroll.dart';
 export 'search.dart';
 export 'shape.dart';
+export 'share_link.dart';
 export 'snowflake.dart';
 export 'string.dart';
 export 'system.dart';
