@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:fl_clash/common/common.dart';
 import 'package:fl_clash/icons/icons.dart';
 import 'package:fl_clash/providers/providers.dart';
@@ -12,14 +14,57 @@ import 'server_list.dart';
 
 const _twoColumnWidth = 720.0;
 const _gap = 12.0;
+// Routes need a moment after connecting before a delay test reflects them
+const _autoTestDelay = Duration(milliseconds: 1500);
 
 /// r00tvpn's home screen, the desktop app's "Graphite" home: the connection
 /// card and the server list, side by side when there is room.
-class HomeView extends ConsumerWidget {
+class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends ConsumerState<HomeView> {
+  Timer? _autoTest;
+
+  @override
+  void initState() {
+    super.initState();
+    // Once a connection comes up the servers are tested on their own, as the
+    // button would, like on the desktop
+    ref.listenManual(isStartProvider, (previous, next) {
+      _autoTest?.cancel();
+      if (previous == false && next) {
+        _autoTest = Timer(_autoTestDelay, _testServers);
+      }
+    });
+  }
+
+  void _testServers() {
+    if (!mounted) {
+      return;
+    }
+    final group = homeGroupOf(
+      ref.read(groupsProvider),
+      ref.read(patchClashConfigProvider).mode,
+    );
+    if (group != null) {
+      ref
+          .read(proxiesActionProvider.notifier)
+          .delayTestPageGroup(group.name, matchSearch: false);
+    }
+  }
+
+  @override
+  void dispose() {
+    _autoTest?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final profile = ref.watch(currentProfileProvider);
     if (profile == null) {
       return const _NoProfiles();

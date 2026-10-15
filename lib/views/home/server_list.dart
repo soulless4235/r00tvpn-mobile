@@ -38,16 +38,18 @@ Group? watchHomeGroup(WidgetRef ref) {
     patchClashConfigProvider.select((state) => state.mode),
   );
   return ref.watch(
-    groupsProvider.select((groups) {
-      if (mode == Mode.global) {
-        final global = groups.getGroup(_globalGroupName);
-        if (global != null) {
-          return global;
-        }
-      }
-      return groups.firstWhereOrNull((group) => group.hidden == false);
-    }),
+    groupsProvider.select((groups) => homeGroupOf(groups, mode)),
   );
+}
+
+Group? homeGroupOf(List<Group> groups, Mode mode) {
+  if (mode == Mode.global) {
+    final global = groups.getGroup(_globalGroupName);
+    if (global != null) {
+      return global;
+    }
+  }
+  return groups.firstWhereOrNull((group) => group.hidden == false);
 }
 
 /// "Авто · 🇫🇮 VLESS Vision" when the selection is itself a group.
