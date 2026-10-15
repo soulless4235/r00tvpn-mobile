@@ -141,14 +141,28 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          sparse-checkout: .github/release-notes
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: apk
           path: dist
+      # The notes are .github/release-notes/<tag>.md when there is one
+      - name: Release notes
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          if [ -f ".github/release-notes/$TAG.md" ]; then
+            cp ".github/release-notes/$TAG.md" release-notes.md
+          else
+            echo "r00tvpn for Android $TAG" > release-notes.md
+          fi
       - uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           tag_name: ${{ github.ref_name }}
           name: r00tvpn Android ${{ github.ref_name }}
+          body_path: release-notes.md
           prerelease: ${{ contains(github.ref_name, '-') }}
           fail_on_unmatched_files: true
           files: dist/*.apk
