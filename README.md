@@ -19,7 +19,9 @@
 ## Установка
 
 APK публикуются в [Releases](https://github.com/soulless4235/r00tvpn-mobile/releases).
-Для большинства телефонов нужен файл `arm64-v8a`.
+Для большинства телефонов нужен файл `arm64-v8a`. Постоянная ссылка на последнюю версию
+(с релиза после 1.0.0 имена файлов без номера версии):
+https://github.com/soulless4235/r00tvpn-mobile/releases/latest/download/r00tvpn-android-arm64-v8a.apk
 
 ## Сборка
 
