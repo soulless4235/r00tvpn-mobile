@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">r00tvpn</string>
-    <string name="service_channel_name">FlClash Service</string>
+    <string name="service_channel_name">r00tvpn</string>
 </resources>
