@@ -202,13 +202,11 @@ class _DisclaimerTerm extends StatelessWidget {
   final int index;
   final String title;
   final String content;
-  final List<Widget> children;
 
   const _DisclaimerTerm({
     required this.index,
     required this.title,
     required this.content,
-    this.children = const [],
   });
 
   static const _badgeSize = 28.0;
@@ -255,8 +253,6 @@ class _DisclaimerTerm extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           _TermParagraphs(content),
-          for (final child in children)
-            Padding(padding: const EdgeInsets.only(top: 12), child: child),
         ],
       ),
     );
@@ -284,94 +280,6 @@ class _TermParagraphs extends StatelessWidget {
             child: Text(paragraph, style: style),
           ),
       ],
-    );
-  }
-}
-
-class _DataServiceCard extends StatelessWidget {
-  final Glyph glyph;
-  final String title;
-  final String content;
-
-  const _DataServiceCard({
-    required this.glyph,
-    required this.title,
-    required this.content,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final colorScheme = context.colorScheme;
-    final textTheme = context.textTheme;
-    return DecoratedBox(
-      decoration: ShapeDecoration(
-        color: colorScheme.surfaceContainer,
-        shape: AppShape.xl,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              children: [
-                GlyphIcon(glyph, size: 20, color: colorScheme.primary),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    title,
-                    style: textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 8),
-                DecoratedBox(
-                  decoration: ShapeDecoration(
-                    color: colorScheme.tertiaryContainer,
-                    shape: AppShape.full,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 2,
-                    ),
-                    child: Text(
-                      context.appLocalizations.disclaimerAndroidOnly,
-                      style: textTheme.labelSmall?.copyWith(
-                        color: colorScheme.onTertiaryContainer,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
-            _TermParagraphs(content),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _PolicyLink extends StatelessWidget {
-  final String label;
-  final String url;
-
-  const _PolicyLink({required this.label, required this.url});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElasticButton(
-      child: TextButton.icon(
-        onPressed: () {
-          dialogs.openUrl(url);
-        },
-        icon: const GlyphIcon(AppGlyphs.openExternal, size: 18),
-        label: Text(label),
-      ),
     );
   }
 }
