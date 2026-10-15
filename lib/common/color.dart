@@ -206,3 +206,26 @@ extension ColorSchemeExtension on ColorScheme {
     return warning;
   }
 }
+
+extension GraphiteThemeData on ThemeData {
+  /// The desktop app's section bar: its sidebar colour, and labels small
+  /// enough for all six sections on a phone.
+  ThemeData get withGraphiteNavigationBar => copyWith(
+    navigationBarTheme: navigationBarTheme.copyWith(
+      backgroundColor: colorScheme.surfaceContainerLow,
+      indicatorColor: colorScheme.surfaceContainerHighest,
+      height: 64,
+      labelTextStyle: WidgetStateProperty.resolveWith((states) {
+        final selected = states.contains(WidgetState.selected);
+        return textTheme.labelSmall?.copyWith(
+          fontSize: 10,
+          letterSpacing: -0.3,
+          fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+          color: selected
+              ? colorScheme.onSurface
+              : colorScheme.onSurfaceVariant,
+        );
+      }),
+    ),
+  );
+}

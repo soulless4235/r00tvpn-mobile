@@ -138,11 +138,11 @@ class _SubscriptionInfo extends StatelessWidget {
           children: [
             _Stat(
               label: appLocalizations.homeTrafficRemaining,
-              value: total > 0 ? max(0, total - used).traffic.show : '∞',
+              value: total > 0 ? max(0, total - used).traffic.show : null,
             ),
             _Stat(
               label: appLocalizations.homeDaysRemaining,
-              value: expiresAt != null ? '$daysRemaining' : '∞',
+              value: expiresAt != null ? '$daysRemaining' : null,
             ),
             _Stat(label: appLocalizations.homeExpires, value: expireDate),
           ],
@@ -152,11 +152,12 @@ class _SubscriptionInfo extends StatelessWidget {
   }
 }
 
+/// A subscription figure; a null [value] is unlimited.
 class _Stat extends StatelessWidget {
   const _Stat({required this.label, required this.value});
 
   final String label;
-  final String value;
+  final String? value;
 
   @override
   Widget build(BuildContext context) {
@@ -173,14 +174,24 @@ class _Stat extends StatelessWidget {
               color: context.colorScheme.onSurfaceVariant,
             ),
           ),
-          Text(
-            value,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: context.textTheme.bodyMedium?.copyWith(
-              fontWeight: FontWeight.w600,
+          switch (value) {
+            final value? => Text(
+              value,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: context.textTheme.bodyMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
+            null => SizedBox(
+              height: 20,
+              child: GlyphIcon(
+                HomeGlyphs.infinity,
+                size: 16,
+                color: context.colorScheme.onSurface,
+              ),
+            ),
+          },
         ],
       ),
     );

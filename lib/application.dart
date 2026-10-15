@@ -211,7 +211,7 @@ class ApplicationState extends ConsumerState<Application> {
             colorScheme: _getAppColorScheme(brightness: Brightness.light),
             fontFamily: fontFamily,
             fontFamilyFallback: fontFamilyFallback,
-          ).withAppShapes,
+          ).withAppShapes.withGraphiteNavigationBar,
           darkTheme: ThemeData(
             useMaterial3: true,
             pageTransitionsTheme: _pageTransitionsTheme,
@@ -219,7 +219,7 @@ class ApplicationState extends ConsumerState<Application> {
             colorScheme: _getAppColorScheme(brightness: Brightness.dark),
             fontFamily: fontFamily,
             fontFamilyFallback: fontFamilyFallback,
-          ).withAppShapes,
+          ).withAppShapes.withGraphiteNavigationBar,
           home: KeyboardInsetHold(child: child!),
         );
       },

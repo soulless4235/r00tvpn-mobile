@@ -230,7 +230,7 @@ class _Header extends ConsumerWidget {
                           .delayTestPageGroup(group.name, matchSearch: false),
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size(0, 32),
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   foregroundColor: colorScheme.onSurface,
                   side: BorderSide(color: colorScheme.outlineVariant),
@@ -257,7 +257,7 @@ class _Header extends ConsumerWidget {
                     .toPage(PageLabel.proxies),
                 style: TextButton.styleFrom(
                   minimumSize: const Size(0, 32),
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   foregroundColor: colorScheme.onSurfaceVariant,
                   shape: RoundedRectangleBorder(

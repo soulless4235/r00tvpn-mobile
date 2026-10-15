@@ -40,6 +40,13 @@ abstract final class HomeGlyphs {
     GlyphCircle(16, 16, 6, role: GlyphRole.line),
   ]);
 
+  static const infinity = Glyph([
+    GlyphPath(
+      'M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z',
+      role: GlyphRole.line,
+    ),
+  ]);
+
   static const gauge = Glyph([
     GlyphPath('m12 14 4-4', role: GlyphRole.line),
     GlyphPath('M3.34 19a10 10 0 1 1 17.32 0', role: GlyphRole.line),
