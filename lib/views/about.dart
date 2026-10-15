@@ -100,11 +100,13 @@ class AboutView extends ConsumerWidget {
                 url: 'https://github.com/chen08209/Clash.Meta/tree/FlClash',
                 label: 'github.com/chen08209/Clash.Meta',
               ),
+              // r00tvpn: the project this one is forked from, in place of
+              // its author's Telegram channel
               _buildLinkItem(
-                glyph: AppGlyphs.send,
-                title: 'Telegram',
-                url: 'https://t.me/FlClash',
-                label: 't.me/FlClash',
+                glyph: AppGlyphs.code,
+                title: 'FlClash',
+                url: 'https://github.com/chen08209/FlClash',
+                label: 'github.com/chen08209/FlClash',
               ),
             ],
           ),
