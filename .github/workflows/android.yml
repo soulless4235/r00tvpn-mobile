@@ -24,6 +24,34 @@ env:
   NDK_VERSION: r28c
 
 jobs:
+  # FlClash's own checks: format, analyzer and the unit tests (the Go core is
+  # not needed for them; the Rust plugin builds with the runner's toolchain)
+  check:
+    name: Format, analyze, test
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Check format
+        run: dart format --output=none --set-exit-if-changed lib test tool plugins setup.dart
+
+      - name: Analyze
+        run: flutter analyze --no-fatal-infos
+
+      - name: Test
+        run: |
+          yq -i '.hooks.user_defines.setup.build_assets = false' pubspec.yaml
+          flutter test --reporter expanded
+
   apk:
     name: Build APK
     runs-on: ubuntu-24.04
@@ -100,7 +128,7 @@ jobs:
 
   release:
     if: startsWith(github.ref, 'refs/tags/')
-    needs: apk
+    needs: [check, apk]
     runs-on: ubuntu-24.04
     permissions:
       contents: write
