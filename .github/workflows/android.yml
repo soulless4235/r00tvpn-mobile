@@ -50,7 +50,12 @@ jobs:
       - name: Test
         run: |
           yq -i '.hooks.user_defines.setup.build_assets = false' pubspec.yaml
-          flutter test --reporter expanded
+          flutter test --reporter expanded --file-reporter json:test-results.json
+
+      # Raw logs need a GitHub account; annotations and the summary do not
+      - name: Report failed tests
+        if: failure()
+        run: python3 .github/scripts/test_annotations.py test-results.json
 
   apk:
     name: Build APK
