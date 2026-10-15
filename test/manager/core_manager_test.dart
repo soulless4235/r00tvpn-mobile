@@ -256,6 +256,10 @@ void main() {
   testWidgets('the log stream follows the openLogs setting', (tester) async {
     final coreInterface = _coreInterface();
     final container = await _pumpCoreManager(tester, coreInterface);
+    // r00tvpn collects logs by default; the test starts with them off
+    container
+        .read(appSettingProvider.notifier)
+        .update((state) => state.copyWith(openLogs: false));
     container.read(coreStatusProvider.notifier).value = CoreStatus.connected;
     await tester.pump();
 

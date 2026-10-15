@@ -62,8 +62,11 @@ void main() {
     expect(stringOf('FakeIPRange'), defaultDns.fakeIpRange);
     expect(stringOf('GeoIPCode'), isNotEmpty);
     expect(stringsOf('FakeIPFilter'), defaultDns.fakeIpFilter);
-    expect(stringsOf('DefaultNameserver'), defaultDns.defaultNameserver);
-    expect(stringsOf('NameServer'), defaultDns.nameserver);
+    // r00tvpn offers Cloudflare and Google instead of the core's resolvers
+    expect(stringsOf('DefaultNameserver'), isNotEmpty);
+    expect(stringsOf('NameServer'), isNotEmpty);
+    expect(defaultDns.defaultNameserver, ['1.1.1.1', '8.8.8.8', '1.0.0.1']);
+    expect(defaultDns.nameserver, baselineDns.nameserver);
     expect(body, isNot(contains('Listen:')));
     expect(body, isNot(contains('FakeIPRange6:')));
     expect(

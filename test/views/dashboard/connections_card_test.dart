@@ -79,7 +79,7 @@ void main() {
     var count = 2;
     await pumpCard(tester, countReader: () async => count);
 
-    expect(find.text('Live connections'), findsOneWidget);
+    expect(find.text('Connections'), findsOneWidget);
     expect(find.text('2'), findsOneWidget);
 
     count = 1;

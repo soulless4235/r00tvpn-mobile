@@ -79,6 +79,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m27(name) => "${name} 已更新";
 
+  static String m28(ms) => "${ms} ms";
+
+  static String m29(count) => "订阅剩余天数：${count}";
+
+  static String m30(date) => "请在 ${date} 前续订以保持访问";
+
+  static String m31(name) => "经由 ${name}";
+
   static String m32(action) => "已被“${action}”使用，保存后将移到这里";
 
   static String m33(modifiers) => "至少包含 ${modifiers} 中的一个";
@@ -647,6 +655,36 @@ class MessageLookup extends MessageLookupByLibrary {
     "hideTimeoutProxiesDesc": MessageLookupByLibrary.simpleMessage(
       "不显示上次延迟测试超时的代理",
     ),
+    "homeAllGroups": MessageLookupByLibrary.simpleMessage("全部分组"),
+    "homeConnect": MessageLookupByLibrary.simpleMessage("连接"),
+    "homeConnected": MessageLookupByLibrary.simpleMessage("已连接"),
+    "homeDaysRemaining": MessageLookupByLibrary.simpleMessage("剩余天数"),
+    "homeDisconnect": MessageLookupByLibrary.simpleMessage("断开"),
+    "homeDisconnected": MessageLookupByLibrary.simpleMessage("未连接"),
+    "homeEmptyDescription": MessageLookupByLibrary.simpleMessage("添加一个配置即可开始"),
+    "homeEmptyTitle": MessageLookupByLibrary.simpleMessage("还没有配置"),
+    "homeExpires": MessageLookupByLibrary.simpleMessage("到期"),
+    "homeFixedGroup": MessageLookupByLibrary.simpleMessage("节点自动选择"),
+    "homeGroupsSection": MessageLookupByLibrary.simpleMessage("分组"),
+    "homeLatencyMs": m28,
+    "homeNever": MessageLookupByLibrary.simpleMessage("永不"),
+    "homeNoResponse": MessageLookupByLibrary.simpleMessage("无响应"),
+    "homeNodes": MessageLookupByLibrary.simpleMessage("节点"),
+    "homeOtherNodes": MessageLookupByLibrary.simpleMessage("其他"),
+    "homeRoutingMode": MessageLookupByLibrary.simpleMessage("路由模式"),
+    "homeServers": MessageLookupByLibrary.simpleMessage("服务器"),
+    "homeSubscriptionExpired": MessageLookupByLibrary.simpleMessage("订阅已到期"),
+    "homeSubscriptionExpiredHint": MessageLookupByLibrary.simpleMessage(
+      "请续订以恢复访问",
+    ),
+    "homeSubscriptionExpiring": m29,
+    "homeSubscriptionExpiringHint": m30,
+    "homeSubscriptionExpiringToday": MessageLookupByLibrary.simpleMessage(
+      "订阅将于今天到期",
+    ),
+    "homeTestLatency": MessageLookupByLibrary.simpleMessage("测试延迟"),
+    "homeTrafficRemaining": MessageLookupByLibrary.simpleMessage("剩余流量"),
+    "homeVia": m31,
     "hopInterval": MessageLookupByLibrary.simpleMessage("跳跃间隔"),
     "host": MessageLookupByLibrary.simpleMessage("主机"),
     "hostname": MessageLookupByLibrary.simpleMessage("主机名"),
@@ -861,6 +899,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "minutesAgoShort": m48,
     "mixedPort": MessageLookupByLibrary.simpleMessage("混合端口"),
     "mode": MessageLookupByLibrary.simpleMessage("模式"),
+    "modeRule": MessageLookupByLibrary.simpleMessage("规则"),
     "monochromeScheme": MessageLookupByLibrary.simpleMessage("单色"),
     "monthsAgo": m49,
     "monthsAgoShort": m50,

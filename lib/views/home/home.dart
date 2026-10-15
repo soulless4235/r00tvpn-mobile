@@ -108,11 +108,13 @@ class _NoProfiles extends StatelessWidget {
                     style: FilledButton.styleFrom(
                       minimumSize: const Size(0, 48),
                       padding: const EdgeInsets.symmetric(horizontal: 24),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
+                      shape: AppShape.all(12),
                     ),
-                    icon: const GlyphIcon(AppGlyphs.addCircle, size: 20),
+                    icon: const GlyphIcon(
+                      AppGlyphs.addCircle,
+                      size: 20,
+                      fill: 1,
+                    ),
                     label: Text(appLocalizations.addProfile),
                   ),
                 ],

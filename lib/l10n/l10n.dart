@@ -95,9 +95,9 @@ class AppLocalizations {
     return Intl.message('Profiles', name: 'profiles', desc: '', args: []);
   }
 
-  /// `Settings`
+  /// `Tools`
   String get tools {
-    return Intl.message('Settings', name: 'tools', desc: '', args: []);
+    return Intl.message('Tools', name: 'tools', desc: '', args: []);
   }
 
   /// `Logs`
@@ -7757,12 +7757,10 @@ class AppLocalizations {
     );
   }
 
-  /// `{count, plural, one{Your subscription ends in {count} day} other{Your subscription ends in {count} days}}`
-  String homeSubscriptionExpiring(num count) {
-    return Intl.plural(
-      count,
-      one: 'Your subscription ends in $count day',
-      other: 'Your subscription ends in $count days',
+  /// `Days left on your subscription: {count}`
+  String homeSubscriptionExpiring(Object count) {
+    return Intl.message(
+      'Days left on your subscription: $count',
       name: 'homeSubscriptionExpiring',
       desc: '',
       args: [count],

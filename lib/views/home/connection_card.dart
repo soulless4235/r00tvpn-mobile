@@ -127,9 +127,9 @@ class _SubscriptionInfo extends StatelessWidget {
     }
     final used = subscriptionInfo.upload + subscriptionInfo.download;
     return DecoratedBox(
-      decoration: BoxDecoration(
+      decoration: ShapeDecoration(
         color: colorScheme.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(12),
+        shape: AppShape.all(12),
       ),
       child: Padding(
         padding: const EdgeInsets.all(8),
@@ -210,10 +210,11 @@ class _ExpiryNotice extends StatelessWidget {
     return Semantics(
       liveRegion: true,
       child: DecoratedBox(
-        decoration: BoxDecoration(
+        decoration: ShapeDecoration(
           color: colorScheme.error.withValues(alpha: 0.1),
-          border: Border.all(color: colorScheme.error.withValues(alpha: 0.4)),
-          borderRadius: BorderRadius.circular(12),
+          shape: AppShape.all(12).copyWith(
+            side: BorderSide(color: colorScheme.error.withValues(alpha: 0.4)),
+          ),
         ),
         child: Padding(
           padding: const EdgeInsets.all(12),
@@ -339,8 +340,7 @@ class _PowerButton extends ConsumerWidget {
       height: 48,
       child: Material(
         color: isStart ? Colors.transparent : colorScheme.primary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+        shape: AppShape.all(12).copyWith(
           side: isStart
               ? BorderSide(color: colorScheme.outlineVariant)
               : BorderSide.none,
@@ -438,11 +438,11 @@ class _TrafficSparkline extends ConsumerWidget {
                   alignment: Alignment.bottomCenter,
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
-                    decoration: BoxDecoration(
+                    decoration: ShapeDecoration(
                       color: isStart
                           ? colorScheme.primary.withValues(alpha: 0.85)
                           : colorScheme.surfaceContainerHighest,
-                      borderRadius: BorderRadius.circular(2),
+                      shape: AppShape.all(2),
                     ),
                   ),
                 ),
@@ -473,10 +473,11 @@ class _ModeSwitcher extends ConsumerWidget {
       label: context.appLocalizations.homeRoutingMode,
       container: true,
       child: DecoratedBox(
-        decoration: BoxDecoration(
+        decoration: ShapeDecoration(
           color: colorScheme.surface,
-          border: Border.all(color: colorScheme.outlineVariant),
-          borderRadius: BorderRadius.circular(12),
+          shape: AppShape.all(
+            12,
+          ).copyWith(side: BorderSide(color: colorScheme.outlineVariant)),
         ),
         child: Padding(
           padding: const EdgeInsets.all(4),
@@ -526,7 +527,7 @@ class _ModeButton extends StatelessWidget {
         color: selected
             ? colorScheme.surfaceContainerHighest
             : Colors.transparent,
-        borderRadius: BorderRadius.circular(8),
+        shape: AppShape.sm,
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: selected ? null : onTap,

@@ -92,8 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m28(ms) => "${ms} ms";
 
-  static String m29(count) =>
-      "${Intl.plural(count, one: 'Your subscription ends in ${count} day', other: 'Your subscription ends in ${count} days')}";
+  static String m29(count) => "Days left on your subscription: ${count}";
 
   static String m30(date) => "Renew before ${date} to keep your access";
 
@@ -1771,7 +1770,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "toggle": MessageLookupByLibrary.simpleMessage("Toggle"),
     "tolerance": MessageLookupByLibrary.simpleMessage("Tolerance"),
     "tonalSpotScheme": MessageLookupByLibrary.simpleMessage("Tonal spot"),
-    "tools": MessageLookupByLibrary.simpleMessage("Settings"),
+    "tools": MessageLookupByLibrary.simpleMessage("Tools"),
     "torch": MessageLookupByLibrary.simpleMessage("Flashlight"),
     "total": MessageLookupByLibrary.simpleMessage("Total"),
     "totalTraffic": MessageLookupByLibrary.simpleMessage("Total traffic"),

@@ -234,9 +234,7 @@ class _Header extends ConsumerWidget {
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   foregroundColor: colorScheme.onSurface,
                   side: BorderSide(color: colorScheme.outlineVariant),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+                  shape: AppShape.sm,
                   textStyle: smallText,
                 ),
                 icon: testing
@@ -260,9 +258,7 @@ class _Header extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 4),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   foregroundColor: colorScheme.onSurfaceVariant,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+                  shape: AppShape.sm,
                   textStyle: smallText,
                 ),
                 child: Row(
@@ -325,8 +321,7 @@ class _ServerRow extends ConsumerWidget {
         color: selected
             ? colorScheme.surfaceContainerHighest
             : Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+        shape: AppShape.all(12).copyWith(
           side: BorderSide(
             color: selected ? colorScheme.primary : Colors.transparent,
           ),

@@ -80,6 +80,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m27(name) => "${name} を更新しました";
 
+  static String m28(ms) => "${ms} ms";
+
+  static String m29(count) => "サブスクリプションの残り日数: ${count}";
+
+  static String m30(date) => "アクセスを維持するには ${date} までに更新してください";
+
+  static String m31(name) => "経由: ${name}";
+
   static String m32(action) => "「${action}」で使用中です。保存するとこちらに移動します。";
 
   static String m33(modifiers) => "${modifiers} のいずれかを含めてください";
@@ -708,6 +716,40 @@ class MessageLookup extends MessageLookupByLibrary {
     "hideTimeoutProxiesDesc": MessageLookupByLibrary.simpleMessage(
       "前回の遅延テストがタイムアウトしたプロキシを表示しない",
     ),
+    "homeAllGroups": MessageLookupByLibrary.simpleMessage("すべてのグループ"),
+    "homeConnect": MessageLookupByLibrary.simpleMessage("接続"),
+    "homeConnected": MessageLookupByLibrary.simpleMessage("接続済み"),
+    "homeDaysRemaining": MessageLookupByLibrary.simpleMessage("残り日数"),
+    "homeDisconnect": MessageLookupByLibrary.simpleMessage("切断"),
+    "homeDisconnected": MessageLookupByLibrary.simpleMessage("未接続"),
+    "homeEmptyDescription": MessageLookupByLibrary.simpleMessage(
+      "プロファイルを追加して始めましょう",
+    ),
+    "homeEmptyTitle": MessageLookupByLibrary.simpleMessage("プロファイルがまだありません"),
+    "homeExpires": MessageLookupByLibrary.simpleMessage("有効期限"),
+    "homeFixedGroup": MessageLookupByLibrary.simpleMessage("ノードは自動で選ばれます"),
+    "homeGroupsSection": MessageLookupByLibrary.simpleMessage("グループ"),
+    "homeLatencyMs": m28,
+    "homeNever": MessageLookupByLibrary.simpleMessage("なし"),
+    "homeNoResponse": MessageLookupByLibrary.simpleMessage("応答なし"),
+    "homeNodes": MessageLookupByLibrary.simpleMessage("ノード"),
+    "homeOtherNodes": MessageLookupByLibrary.simpleMessage("その他"),
+    "homeRoutingMode": MessageLookupByLibrary.simpleMessage("ルーティングモード"),
+    "homeServers": MessageLookupByLibrary.simpleMessage("サーバー"),
+    "homeSubscriptionExpired": MessageLookupByLibrary.simpleMessage(
+      "サブスクリプションは終了しました",
+    ),
+    "homeSubscriptionExpiredHint": MessageLookupByLibrary.simpleMessage(
+      "アクセスを回復するにはサブスクリプションを更新してください",
+    ),
+    "homeSubscriptionExpiring": m29,
+    "homeSubscriptionExpiringHint": m30,
+    "homeSubscriptionExpiringToday": MessageLookupByLibrary.simpleMessage(
+      "サブスクリプションは今日で終了します",
+    ),
+    "homeTestLatency": MessageLookupByLibrary.simpleMessage("遅延テスト"),
+    "homeTrafficRemaining": MessageLookupByLibrary.simpleMessage("残りトラフィック"),
+    "homeVia": m31,
     "hopInterval": MessageLookupByLibrary.simpleMessage("ホップ間隔"),
     "host": MessageLookupByLibrary.simpleMessage("ホスト"),
     "hostname": MessageLookupByLibrary.simpleMessage("ホスト名"),
@@ -948,6 +990,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "minutesAgoShort": m48,
     "mixedPort": MessageLookupByLibrary.simpleMessage("Mixedポート"),
     "mode": MessageLookupByLibrary.simpleMessage("モード"),
+    "modeRule": MessageLookupByLibrary.simpleMessage("ルール"),
     "monochromeScheme": MessageLookupByLibrary.simpleMessage("モノクローム"),
     "monthsAgo": m49,
     "monthsAgoShort": m50,

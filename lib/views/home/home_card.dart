@@ -12,10 +12,11 @@ class HomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = context.colorScheme;
     return DecoratedBox(
-      decoration: BoxDecoration(
+      decoration: ShapeDecoration(
         color: colorScheme.surfaceContainer,
-        border: Border.all(color: colorScheme.outlineVariant),
-        borderRadius: BorderRadius.circular(18),
+        shape: AppShape.all(
+          18,
+        ).copyWith(side: BorderSide(color: colorScheme.outlineVariant)),
       ),
       child: Padding(padding: padding, child: child),
     );

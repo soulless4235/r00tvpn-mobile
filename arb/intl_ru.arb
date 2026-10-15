@@ -928,7 +928,7 @@
   "homeRoutingMode": "Режим маршрутизации",
   "homeEmptyTitle": "Профилей пока нет",
   "homeEmptyDescription": "Добавьте профиль, чтобы начать",
-  "homeSubscriptionExpiring": "{count, plural, one{Подписка закончится через {count} день} few{Подписка закончится через {count} дня} many{Подписка закончится через {count} дней} other{Подписка закончится через {count} дня}}",
+  "homeSubscriptionExpiring": "До конца подписки осталось дней: {count}",
   "homeSubscriptionExpiringToday": "Подписка закончится сегодня",
   "homeSubscriptionExpired": "Подписка закончилась",
   "homeSubscriptionExpiringHint": "Продлите до {date}, чтобы не потерять доступ",

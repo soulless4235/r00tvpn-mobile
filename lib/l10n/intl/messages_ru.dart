@@ -92,8 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m28(ms) => "${ms} мс";
 
-  static String m29(count) =>
-      "${Intl.plural(count, one: 'Подписка закончится через ${count} день', few: 'Подписка закончится через ${count} дня', many: 'Подписка закончится через ${count} дней', other: 'Подписка закончится через ${count} дня')}";
+  static String m29(count) => "До конца подписки осталось дней: ${count}";
 
   static String m30(date) => "Продлите до ${date}, чтобы не потерять доступ";
 

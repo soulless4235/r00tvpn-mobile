@@ -1,3 +1,4 @@
+import 'package:fl_clash/common/color.dart';
 import 'package:fl_clash/common/constant.dart';
 import 'package:fl_clash/providers/providers.dart';
 import 'package:material_ui/material_ui.dart';
@@ -39,7 +40,7 @@ void main() {
         seedColor: lightSeed,
         brightness: Brightness.light,
         dynamicSchemeVariant: variant,
-      ),
+      ).toGraphite(brandAccent: false),
     );
     expect(
       container.read(genColorSchemeProvider(Brightness.dark)),
@@ -47,7 +48,7 @@ void main() {
         seedColor: darkSeed,
         brightness: Brightness.dark,
         dynamicSchemeVariant: variant,
-      ),
+      ).toGraphite(brandAccent: false),
     );
   });
 
@@ -93,7 +94,7 @@ void main() {
         dynamicSchemeVariant: container
             .read(themeSettingProvider)
             .schemeVariant,
-      ),
+      ).toGraphite(brandAccent: false),
     );
   });
 }
