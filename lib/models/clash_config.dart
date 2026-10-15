@@ -27,7 +27,7 @@ const baselineDnsOverrideKeys = {
 const baselineDns = Dns(
   enable: true,
   enhancedMode: DnsMode.fakeIp,
-  nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query'],
+  nameserver: ['https://1.1.1.1/dns-query', 'https://8.8.8.8/dns-query'],
 );
 const defaultGeoXUrl = {
   GeoResource.MMDB:
@@ -1085,7 +1085,7 @@ abstract class Dns with _$Dns {
     @JsonKey(name: 'cache-algorithm')
     DnsCacheAlgorithm cacheAlgorithm,
     @Default(4096) @JsonKey(name: 'cache-max-size') int cacheMaxSize,
-    @Default(['114.114.114.114', '223.5.5.5', '8.8.8.8', '1.0.0.1'])
+    @Default(['1.1.1.1', '8.8.8.8', '1.0.0.1'])
     @JsonKey(name: 'default-nameserver')
     List<String> defaultNameserver,
     @Default(DnsMode.redirHost)
@@ -1109,7 +1109,7 @@ abstract class Dns with _$Dns {
     @Default({})
     @JsonKey(name: 'nameserver-policy')
     Map<String, String> nameserverPolicy,
-    @Default(['https://doh.pub/dns-query', 'tls://223.5.5.5:853'])
+    @Default(['https://1.1.1.1/dns-query', 'https://8.8.8.8/dns-query'])
     List<String> nameserver,
     @Default([]) List<String> fallback,
     @Default(false)

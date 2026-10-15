@@ -6,6 +6,8 @@ import 'common.dart';
 
 extension PackageInfoExtension on PackageInfo {
   String get ua => [
+    // Panels pick the config format by a known client token at the start (Marzban: ^clash.meta)
+    'clash.meta',
     '$appName/v$version',
     'clash-verge',
     'Platform/${Platform.operatingSystem}',

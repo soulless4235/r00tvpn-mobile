@@ -352,7 +352,7 @@ _Dns _$DnsFromJson(Map<String, dynamic> json) => _Dns(
       (json['default-nameserver'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList() ??
-      const ['114.114.114.114', '223.5.5.5', '8.8.8.8', '1.0.0.1'],
+      const ['1.1.1.1', '8.8.8.8', '1.0.0.1'],
   enhancedMode:
       $enumDecodeNullable(_$DnsModeEnumMap, json['enhanced-mode']) ??
       DnsMode.redirHost,
@@ -379,7 +379,7 @@ _Dns _$DnsFromJson(Map<String, dynamic> json) => _Dns(
       (json['nameserver'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList() ??
-      const ['https://doh.pub/dns-query', 'tls://223.5.5.5:853'],
+      const ['https://1.1.1.1/dns-query', 'https://8.8.8.8/dns-query'],
   fallback:
       (json['fallback'] as List<dynamic>?)?.map((e) => e as String).toList() ??
       const [],

@@ -199,7 +199,8 @@ class ApplicationState extends ConsumerState<Application> {
           },
           scrollBehavior: const BaseScrollBehavior(),
           title: appName,
-          locale: getLocaleForString(locale),
+          // r00tvpn: Russian unless the user picks a language
+          locale: getLocaleForString(locale) ?? const Locale('ru'),
           supportedLocales: AppLocalizations.delegate.supportedLocales,
           themeMode: themeProps.themeMode,
           theme: ThemeData(

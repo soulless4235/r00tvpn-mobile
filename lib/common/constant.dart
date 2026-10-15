@@ -9,7 +9,7 @@ import 'package:fl_clash/enum/enum.dart';
 import 'package:fl_clash/models/models.dart';
 import 'package:material_ui/material_ui.dart';
 
-const appName = 'FlClash';
+const appName = 'r00tvpn';
 const appHelperService = 'FlClashHelperService';
 const coreManifestName = 'manifest.json';
 const coreName = 'clash.meta';
@@ -129,7 +129,7 @@ const systemDnsRecordKey = 'system_dns_record';
 const bootRecordKey = 'boot_record';
 const defaultSystemDnsFallback = '223.5.5.5';
 const double dialogCommonWidth = 300;
-const repository = 'chen08209/FlClash';
+const repository = 'soulless4235/r00tvpn-mobile';
 const maxMobileWidth = 600;
 const maxLaptopWidth = 840;
 const defaultTestUrl = 'https://www.gstatic.com/generate_204';
