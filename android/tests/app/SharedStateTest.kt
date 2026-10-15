@@ -97,7 +97,7 @@ class SharedStateTest {
 
         assertEquals("FlClash", defaults.currentProfileName)
         assertEquals("Stop", defaults.stopText)
-        assertEquals(true, defaults.crashlytics)
+        assertEquals(false, defaults.crashlytics)
         assertEquals(false, defaults.onlyStatisticsProxy)
         assertEquals(true, defaults.showStopAction)
         assertNull(defaults.vpnOptions)

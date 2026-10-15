@@ -4,8 +4,6 @@ import android.app.ActivityManager
 import android.app.Application
 import android.os.Build
 import android.util.Log
-import com.google.firebase.FirebaseApp
-import com.google.firebase.crashlytics.FirebaseCrashlytics
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -36,18 +34,12 @@ object GlobalState : CoroutineScope by CoroutineScope(SupervisorJob() + Dispatch
         Log.d("FlClash", text)
     }
 
-    fun setCrashlytics(enable: Boolean) {
-        FirebaseApp.initializeApp(application)
-        FirebaseCrashlytics.getInstance().isCrashlyticsCollectionEnabled = enable
-        if (enable) {
-            log("Crashlytics enabled")
-        }
-    }
+    // r00tvpn ships without Firebase: no crash reports or analytics leave the device.
+    // Kept as no-ops so the shared-state plumbing from FlClash stays unchanged.
+    @Suppress("UNUSED_PARAMETER")
+    fun setCrashlytics(enable: Boolean) {}
 
-    fun didCrashOnPreviousExecution(): Boolean {
-        FirebaseApp.initializeApp(application)
-        return FirebaseCrashlytics.getInstance().didCrashOnPreviousExecution()
-    }
+    fun didCrashOnPreviousExecution(): Boolean = false
 
     fun lastExitInfo(): Map<String, Any?>? {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return null

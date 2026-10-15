@@ -498,7 +498,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "本软件自身不提供任何代理服务器、节点、订阅、机场或网络接入服务，也不与任何此类服务的提供者存在合作、代理或担保关系。",
     ),
     "disclaimerPrivacyContent": MessageLookupByLibrary.simpleMessage(
-      "本软件不会收集或上传你的订阅地址、节点信息、配置内容、访问的网站、连接记录、流量内容和日志，这些数据仅保存在你的设备本地，开发者无法获取。\n\n本软件只会在你使用相应功能时访问外部网络，例如更新订阅时访问你提供的订阅地址、检查更新时访问 GitHub。\n\n桌面版（Windows、macOS、Linux）未集成任何数据统计或崩溃上报服务。Android 版集成了 Google Firebase 的以下两项服务，用于改进应用稳定性：",
+      "本软件不会收集或上传你的订阅地址、节点信息、配置内容、访问的网站、连接记录、流量内容和日志，这些数据仅保存在你的设备本地，开发者无法获取。\n\n本软件只会在你使用相应功能时访问外部网络，例如更新订阅时访问你提供的订阅地址、检查更新时访问 GitHub。\n\n本应用不包含任何统计或崩溃报告服务。",
     ),
     "disclaimerPrivacyTitle": MessageLookupByLibrary.simpleMessage("数据收集与隐私"),
     "disclaimerReadToEnd": MessageLookupByLibrary.simpleMessage("请阅读至底部"),

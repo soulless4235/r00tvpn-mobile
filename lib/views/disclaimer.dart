@@ -20,9 +20,6 @@ class DisclaimerView extends StatelessWidget {
 
   const DisclaimerView({super.key, this.requireConsent = false});
 
-  static const _googlePrivacyUrl = 'https://policies.google.com/privacy';
-  static const _firebasePrivacyUrl =
-      'https://firebase.google.com/support/privacy';
   static const _maxContentWidth = 720.0;
 
   List<({String title, String content})> _leadingTerms(AppLocalizations l) => [
@@ -148,34 +145,8 @@ class DisclaimerView extends StatelessWidget {
       _DisclaimerTerm(
         index: privacyIndex,
         title: appLocalizations.disclaimerPrivacyTitle,
+        // r00tvpn ships without Firebase: no data-service cards or third-party policies
         content: appLocalizations.disclaimerPrivacyContent,
-        children: [
-          _DataServiceCard(
-            glyph: AppGlyphs.error,
-            title: appLocalizations.disclaimerCrashlyticsTitle,
-            content: appLocalizations.disclaimerCrashlyticsContent,
-          ),
-          _DataServiceCard(
-            glyph: AppGlyphs.dataUsage,
-            title: appLocalizations.disclaimerAnalyticsTitle,
-            content: appLocalizations.disclaimerAnalyticsContent,
-          ),
-          _TermParagraphs(appLocalizations.disclaimerDataProcessingContent),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: [
-              _PolicyLink(
-                label: appLocalizations.disclaimerGooglePrivacy,
-                url: _googlePrivacyUrl,
-              ),
-              _PolicyLink(
-                label: appLocalizations.disclaimerFirebasePrivacy,
-                url: _firebasePrivacyUrl,
-              ),
-            ],
-          ),
-        ],
       ),
       for (final (index, term) in trailingTerms.indexed)
         _DisclaimerTerm(
