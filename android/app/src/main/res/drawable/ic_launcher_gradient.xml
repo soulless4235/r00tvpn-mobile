@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- r00tvpn "Graphite": the icon tile, lighter at the top -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:endColor="#111317"
+        android:startColor="#23272E"
+        android:type="linear" />
+</shape>
