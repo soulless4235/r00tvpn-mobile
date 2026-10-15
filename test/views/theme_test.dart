@@ -148,15 +148,15 @@ void main() {
     testWidgets('picks a floating or docked bottom bar', (tester) async {
       await pumpThemeView(tester);
 
-      expect(readSetting().floatingNavigationBar, isTrue);
-
-      await tester.tap(find.text('Docked'));
-      await tester.pumpAndSettle();
       expect(readSetting().floatingNavigationBar, isFalse);
 
       await tester.tap(find.text('Floating'));
       await tester.pumpAndSettle();
       expect(readSetting().floatingNavigationBar, isTrue);
+
+      await tester.tap(find.text('Docked'));
+      await tester.pumpAndSettle();
+      expect(readSetting().floatingNavigationBar, isFalse);
     });
 
     testWidgets('picks a sliding or fading tab switch', (tester) async {

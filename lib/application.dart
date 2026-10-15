@@ -173,13 +173,14 @@ class ApplicationState extends ConsumerState<Application> {
           appSettingProvider.select((state) => state.locale),
         );
         final themeProps = ref.watch(themeSettingProvider);
+        final fontFamily = themeProps.fontFamily ?? appDefaultFontFamily;
         final fontFamilyFallback = appFontFamilyFallback(
           platform: defaultTargetPlatform,
           locales: [
             ?getLocaleForString(locale),
             ...WidgetsBinding.instance.platformDispatcher.locales,
           ],
-          fontFamily: themeProps.fontFamily,
+          fontFamily: fontFamily,
         );
         return MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -208,7 +209,7 @@ class ApplicationState extends ConsumerState<Application> {
             pageTransitionsTheme: _pageTransitionsTheme,
             actionIconTheme: _actionIconTheme,
             colorScheme: _getAppColorScheme(brightness: Brightness.light),
-            fontFamily: themeProps.fontFamily,
+            fontFamily: fontFamily,
             fontFamilyFallback: fontFamilyFallback,
           ).withAppShapes,
           darkTheme: ThemeData(
@@ -216,7 +217,7 @@ class ApplicationState extends ConsumerState<Application> {
             pageTransitionsTheme: _pageTransitionsTheme,
             actionIconTheme: _actionIconTheme,
             colorScheme: _getAppColorScheme(brightness: Brightness.dark),
-            fontFamily: themeProps.fontFamily,
+            fontFamily: fontFamily,
             fontFamilyFallback: fontFamilyFallback,
           ).withAppShapes,
           home: KeyboardInsetHold(child: child!),

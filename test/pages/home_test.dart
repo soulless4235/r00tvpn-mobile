@@ -19,6 +19,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../helpers/glyph_finders.dart';
+import '../helpers/navigation_bar.dart';
 import '../helpers/test_app.dart';
 
 Finder _glyph(Glyph glyph) => find.byGlyph(glyph);
@@ -115,6 +116,7 @@ void main() {
       );
       addTearDown(container.dispose);
       globalState.container = container;
+      useFloatingNavigationBar(container);
       container.read(viewSizeProvider.notifier).value = const Size(1200, 800);
 
       await tester.pumpWidget(
@@ -265,7 +267,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
     expect(tester.getSize(sidebar).width, 48);
-    expect(find.text('Tools'), findsNWidgets(2));
+    expect(find.text('Settings'), findsNWidgets(2));
     expect(container.read(appSettingProvider).sidebarExpanded, isTrue);
     expect(tester.takeException(), isNull);
   });
@@ -370,6 +372,7 @@ void main() {
       );
       addTearDown(container.dispose);
       globalState.container = container;
+      useFloatingNavigationBar(container);
       container.read(viewSizeProvider.notifier).value = const Size(500, 800);
       container.read(currentPageLabelProvider.notifier).toPage(PageLabel.tools);
 
@@ -462,6 +465,10 @@ void main() {
       final container = ProviderContainer();
       addTearDown(container.dispose);
       globalState.container = container;
+      // r00tvpn collects logs by default; the test turns them on
+      container
+          .read(appSettingProvider.notifier)
+          .update((state) => state.copyWith(openLogs: false));
       container.read(viewSizeProvider.notifier).value = const Size(1400, 1000);
       container.read(currentPageLabelProvider.notifier).toPage(PageLabel.tools);
 
@@ -674,6 +681,7 @@ void main() {
     );
     addTearDown(container.dispose);
     globalState.container = container;
+    useFloatingNavigationBar(container);
     container.read(viewSizeProvider.notifier).value = const Size(500, 800);
 
     await tester.pumpWidget(
@@ -767,6 +775,7 @@ void main() {
     );
     addTearDown(container.dispose);
     globalState.container = container;
+    useFloatingNavigationBar(container);
     container.read(viewSizeProvider.notifier).value = const Size(500, 800);
     final items = container.read(_navigationItemsProvider.notifier)
       ..set([dashboard, proxies, profiles]);

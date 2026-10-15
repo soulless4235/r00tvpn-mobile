@@ -269,13 +269,20 @@ void main() {
         .read(viewSizeProvider.notifier)
         .update((_) => Size(maxMobileWidth.toDouble(), 800));
     final mobile = container.read(currentNavigationItemsStateProvider).value;
+    // r00tvpn: the desktop app's sections, connections and logs included
     expect(
       mobile.map((item) => item.label),
-      containsAll([PageLabel.dashboard, PageLabel.profiles, PageLabel.tools]),
+      containsAllInOrder([
+        PageLabel.dashboard,
+        PageLabel.profiles,
+        PageLabel.connections,
+        PageLabel.logs,
+        PageLabel.tools,
+      ]),
     );
     expect(
       mobile.map((item) => item.label),
-      isNot(contains(PageLabel.connections)),
+      isNot(contains(PageLabel.resources)),
     );
 
     container

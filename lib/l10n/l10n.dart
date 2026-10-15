@@ -75,9 +75,9 @@ class AppLocalizations {
     return Intl.message('Direct', name: 'direct', desc: '', args: []);
   }
 
-  /// `Dashboard`
+  /// `Home`
   String get dashboard {
-    return Intl.message('Dashboard', name: 'dashboard', desc: '', args: []);
+    return Intl.message('Home', name: 'dashboard', desc: '', args: []);
   }
 
   /// `Proxies`
@@ -95,9 +95,9 @@ class AppLocalizations {
     return Intl.message('Profiles', name: 'profiles', desc: '', args: []);
   }
 
-  /// `Tools`
+  /// `Settings`
   String get tools {
-    return Intl.message('Tools', name: 'tools', desc: '', args: []);
+    return Intl.message('Settings', name: 'tools', desc: '', args: []);
   }
 
   /// `Logs`
@@ -7582,6 +7582,228 @@ class AppLocalizations {
     return Intl.message(
       'This profile is encrypted with age and needs an age secret key to decrypt',
       name: 'ageSecretKeyRequiredTip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rule`
+  String get modeRule {
+    return Intl.message('Rule', name: 'modeRule', desc: '', args: []);
+  }
+
+  /// `Connect`
+  String get homeConnect {
+    return Intl.message('Connect', name: 'homeConnect', desc: '', args: []);
+  }
+
+  /// `Disconnect`
+  String get homeDisconnect {
+    return Intl.message(
+      'Disconnect',
+      name: 'homeDisconnect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connected`
+  String get homeConnected {
+    return Intl.message('Connected', name: 'homeConnected', desc: '', args: []);
+  }
+
+  /// `Disconnected`
+  String get homeDisconnected {
+    return Intl.message(
+      'Disconnected',
+      name: 'homeDisconnected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `via {name}`
+  String homeVia(Object name) {
+    return Intl.message('via $name', name: 'homeVia', desc: '', args: [name]);
+  }
+
+  /// `Servers`
+  String get homeServers {
+    return Intl.message('Servers', name: 'homeServers', desc: '', args: []);
+  }
+
+  /// `All groups`
+  String get homeAllGroups {
+    return Intl.message(
+      'All groups',
+      name: 'homeAllGroups',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Test latency`
+  String get homeTestLatency {
+    return Intl.message(
+      'Test latency',
+      name: 'homeTestLatency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Groups`
+  String get homeGroupsSection {
+    return Intl.message(
+      'Groups',
+      name: 'homeGroupsSection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nodes`
+  String get homeNodes {
+    return Intl.message('Nodes', name: 'homeNodes', desc: '', args: []);
+  }
+
+  /// `Other`
+  String get homeOtherNodes {
+    return Intl.message('Other', name: 'homeOtherNodes', desc: '', args: []);
+  }
+
+  /// `no response`
+  String get homeNoResponse {
+    return Intl.message(
+      'no response',
+      name: 'homeNoResponse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{ms} ms`
+  String homeLatencyMs(Object ms) {
+    return Intl.message('$ms ms', name: 'homeLatencyMs', desc: '', args: [ms]);
+  }
+
+  /// `The node is picked automatically`
+  String get homeFixedGroup {
+    return Intl.message(
+      'The node is picked automatically',
+      name: 'homeFixedGroup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Traffic left`
+  String get homeTrafficRemaining {
+    return Intl.message(
+      'Traffic left',
+      name: 'homeTrafficRemaining',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Days left`
+  String get homeDaysRemaining {
+    return Intl.message(
+      'Days left',
+      name: 'homeDaysRemaining',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expires`
+  String get homeExpires {
+    return Intl.message('Expires', name: 'homeExpires', desc: '', args: []);
+  }
+
+  /// `Never`
+  String get homeNever {
+    return Intl.message('Never', name: 'homeNever', desc: '', args: []);
+  }
+
+  /// `Routing mode`
+  String get homeRoutingMode {
+    return Intl.message(
+      'Routing mode',
+      name: 'homeRoutingMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No profiles yet`
+  String get homeEmptyTitle {
+    return Intl.message(
+      'No profiles yet',
+      name: 'homeEmptyTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a profile to get started`
+  String get homeEmptyDescription {
+    return Intl.message(
+      'Add a profile to get started',
+      name: 'homeEmptyDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{count, plural, one{Your subscription ends in {count} day} other{Your subscription ends in {count} days}}`
+  String homeSubscriptionExpiring(num count) {
+    return Intl.plural(
+      count,
+      one: 'Your subscription ends in $count day',
+      other: 'Your subscription ends in $count days',
+      name: 'homeSubscriptionExpiring',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Your subscription ends today`
+  String get homeSubscriptionExpiringToday {
+    return Intl.message(
+      'Your subscription ends today',
+      name: 'homeSubscriptionExpiringToday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your subscription has ended`
+  String get homeSubscriptionExpired {
+    return Intl.message(
+      'Your subscription has ended',
+      name: 'homeSubscriptionExpired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Renew before {date} to keep your access`
+  String homeSubscriptionExpiringHint(Object date) {
+    return Intl.message(
+      'Renew before $date to keep your access',
+      name: 'homeSubscriptionExpiringHint',
+      desc: '',
+      args: [date],
+    );
+  }
+
+  /// `Renew your subscription to restore access`
+  String get homeSubscriptionExpiredHint {
+    return Intl.message(
+      'Renew your subscription to restore access',
+      name: 'homeSubscriptionExpiredHint',
       desc: '',
       args: [],
     );

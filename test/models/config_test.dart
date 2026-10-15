@@ -132,7 +132,7 @@ void main() {
       expect(restored.autoLaunch, false);
       expect(restored.silentLaunch, false);
       expect(restored.autoRun, false);
-      expect(restored.openLogs, false);
+      expect(restored.openLogs, true);
       expect(restored.closeConnections, true);
       expect(restored.tabAnimation, TabAnimation.slide);
       expect(restored.autoCheckUpdate, true);

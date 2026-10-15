@@ -171,7 +171,9 @@ const proxiesListStoreKey = PageStorageKey<String>('proxies_list');
 const toolsStoreKey = PageStorageKey<String>('tools');
 const profilesStoreKey = PageStorageKey<String>('profiles');
 
-const defaultPrimaryColor = 0XFFD8C0C3;
+// r00tvpn: the desktop app's "Graphite" accent and typeface
+const defaultPrimaryColor = 0xFFFF8A3D;
+const appDefaultFontFamily = 'Onest';
 
 const maxLogsLength = 5000;
 const maxRequestsLength = 2000;
@@ -183,12 +185,13 @@ const pausedMaxDnsQueriesLength = maxDnsQueriesLength * 2;
 const trafficSampleLength = 30;
 
 const defaultPrimaryColors = [
+  defaultPrimaryColor,
   0xFF795548,
   0xFF03A9F4,
   0xFFFFFF00,
   0XFFBBC9CC,
   0XFFABD397,
-  defaultPrimaryColor,
+  0XFFD8C0C3,
   0XFF665390,
 ];
 

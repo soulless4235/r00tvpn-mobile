@@ -78,10 +78,12 @@ ColorScheme _cachedColorScheme(
   final colorScheme =
       _colorSchemes.remove(key) ??
       ColorScheme.fromSeed(
-        seedColor: seedColor,
-        brightness: brightness,
-        dynamicSchemeVariant: variant,
-      ).toPureBlack(pureBlack);
+            seedColor: seedColor,
+            brightness: brightness,
+            dynamicSchemeVariant: variant,
+          )
+          .toGraphite(brandAccent: seedColor.toARGB32() == defaultPrimaryColor)
+          .toPureBlack(pureBlack);
   _colorSchemes[key] = colorScheme;
   if (_colorSchemes.length > _maxCachedColorSchemes) {
     _colorSchemes.remove(_colorSchemes.keys.first);

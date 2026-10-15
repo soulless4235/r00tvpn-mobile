@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:dynamic_color/dynamic_color.dart';
 import 'package:material_color_utilities/hct/hct.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -97,6 +96,73 @@ extension ColorExtension on Color {
 }
 
 extension ColorSchemeExtension on ColorScheme {
+  /// r00tvpn "Graphite": the desktop app's neutral surfaces in either mode,
+  /// and its exact orange when [brandAccent] (the default accent) is in use.
+  ColorScheme toGraphite({required bool brandAccent}) {
+    final dark = brightness == Brightness.dark;
+    final neutral = dark
+        ? copyWith(
+            surface: const Color(0xFF111317),
+            onSurface: const Color(0xFFE7E9EC),
+            onSurfaceVariant: const Color(0xFF9AA1AC),
+            surfaceDim: const Color(0xFF0D0F12),
+            surfaceBright: const Color(0xFF2A2F37),
+            surfaceContainerLowest: const Color(0xFF0D0F12),
+            surfaceContainerLow: const Color(0xFF14161B),
+            surfaceContainer: const Color(0xFF181B21),
+            surfaceContainerHigh: const Color(0xFF1F232A),
+            surfaceContainerHighest: const Color(0xFF23272E),
+            secondaryContainer: const Color(0xFF23272E),
+            onSecondaryContainer: const Color(0xFFFFFFFF),
+            outline: const Color(0xFF3A3F48),
+            outlineVariant: const Color(0xFF2A2F37),
+            inverseSurface: const Color(0xFFE7E9EC),
+            onInverseSurface: const Color(0xFF181B21),
+            error: const Color(0xFFF2685B),
+            onError: const Color(0xFF2B0703),
+          )
+        : copyWith(
+            surface: const Color(0xFFF3F3F1),
+            onSurface: const Color(0xFF16181D),
+            onSurfaceVariant: const Color(0xFF5C626C),
+            surfaceDim: const Color(0xFFE4E4E1),
+            surfaceBright: const Color(0xFFFFFFFF),
+            surfaceContainerLowest: const Color(0xFFFFFFFF),
+            surfaceContainerLow: const Color(0xFFFAFAF8),
+            surfaceContainer: const Color(0xFFFFFFFF),
+            surfaceContainerHigh: const Color(0xFFECECEA),
+            surfaceContainerHighest: const Color(0xFFE4E4E1),
+            secondaryContainer: const Color(0xFFECECEA),
+            onSecondaryContainer: const Color(0xFF16181D),
+            outline: const Color(0xFFC9CBCE),
+            outlineVariant: const Color(0xFFE2E2DC),
+            inverseSurface: const Color(0xFF2A2E35),
+            onInverseSurface: const Color(0xFFF3F3F1),
+            error: const Color(0xFFC8372D),
+            onError: const Color(0xFFFFFFFF),
+          );
+    if (!brandAccent) {
+      return neutral;
+    }
+    return dark
+        ? neutral.copyWith(
+            primary: const Color(0xFFFF8A3D),
+            onPrimary: const Color(0xFF1A1206),
+            primaryContainer: const Color(0xFF4A2C17),
+            onPrimaryContainer: const Color(0xFFFFD2B3),
+            inversePrimary: const Color(0xFFC2550A),
+            surfaceTint: const Color(0xFFFF8A3D),
+          )
+        : neutral.copyWith(
+            primary: const Color(0xFFC2550A),
+            onPrimary: const Color(0xFFFFFFFF),
+            primaryContainer: const Color(0xFFFFE1CC),
+            onPrimaryContainer: const Color(0xFF5A2600),
+            inversePrimary: const Color(0xFFFF8A3D),
+            surfaceTint: const Color(0xFFC2550A),
+          );
+  }
+
   ColorScheme toPureBlack(bool isPureBlack) {
     if (!isPureBlack || brightness != Brightness.dark) {
       return this;
@@ -123,14 +189,20 @@ extension ColorSchemeExtension on ColorScheme {
 
   Color get modalScrim => scrim.withValues(alpha: 0.32);
 
-  Color get success => Colors.green.harmonizeWith(primary);
+  // r00tvpn: the desktop app's status colours and latency thresholds, so a
+  // node reads the same on every platform
+  Color get success => brightness == Brightness.dark
+      ? const Color(0xFF6FD89C)
+      : const Color(0xFF1E8A55);
 
-  Color get warning => Colors.orange.harmonizeWith(primary);
+  Color get warning => brightness == Brightness.dark
+      ? const Color(0xFFF2C66D)
+      : const Color(0xFFB77C00);
 
   Color? delayColor(int? delay) {
     if (delay == null) return null;
     if (delay < 0) return error;
-    if (delay < 600) return success;
+    if (delay < 500) return success;
     return warning;
   }
 }

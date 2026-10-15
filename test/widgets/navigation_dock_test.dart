@@ -17,6 +17,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../helpers/navigation_bar.dart';
 import '../helpers/test_app.dart';
 
 const _mobileSize = Size(400, 800);
@@ -84,6 +85,7 @@ Future<ProviderContainer> _pumpHome(
   );
   addTearDown(container.dispose);
   globalState.container = container;
+  useFloatingNavigationBar(container);
   container.read(viewSizeProvider.notifier).value = _mobileSize;
   await tester.pumpWidget(
     UncontrolledProviderScope(

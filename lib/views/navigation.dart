@@ -8,6 +8,8 @@ import 'package:material_ui/material_ui.dart';
 class Navigation implements NavigationPort {
   static Navigation? _instance;
 
+  // r00tvpn: the desktop app's sections in its order: home, profiles, proxies,
+  // connections, logs and settings, all in the phone's bottom bar too
   @override
   List<NavigationItem> getItems({
     bool openLogs = false,
@@ -19,7 +21,13 @@ class Navigation implements NavigationPort {
         glyph: AppGlyphs.dashboard,
         label: PageLabel.dashboard,
         builder: (_) =>
-            const DashboardView(key: GlobalObjectKey(PageLabel.dashboard)),
+            const HomeView(key: GlobalObjectKey(PageLabel.dashboard)),
+      ),
+      NavigationItem(
+        glyph: AppGlyphs.profiles,
+        label: PageLabel.profiles,
+        builder: (_) =>
+            const ProfilesView(key: GlobalObjectKey(PageLabel.profiles)),
       ),
       NavigationItem(
         glyph: AppGlyphs.proxies,
@@ -31,10 +39,23 @@ class Navigation implements NavigationPort {
             : [],
       ),
       NavigationItem(
-        glyph: AppGlyphs.profiles,
-        label: PageLabel.profiles,
+        glyph: AppGlyphs.connections,
+        label: PageLabel.connections,
         builder: (_) =>
-            const ProfilesView(key: GlobalObjectKey(PageLabel.profiles)),
+            const ConnectionsView(key: GlobalObjectKey(PageLabel.connections)),
+      ),
+      NavigationItem(
+        glyph: AppGlyphs.logs,
+        label: PageLabel.logs,
+        builder: (_) => const LogsView(key: GlobalObjectKey(PageLabel.logs)),
+        modes: openLogs
+            ? [NavigationItemMode.mobile, NavigationItemMode.desktop]
+            : [],
+      ),
+      NavigationItem(
+        glyph: AppGlyphs.tools,
+        label: PageLabel.tools,
+        builder: (_) => const ToolsView(key: GlobalObjectKey(PageLabel.tools)),
       ),
       NavigationItem(
         glyph: AppGlyphs.requests,
@@ -42,13 +63,6 @@ class Navigation implements NavigationPort {
         builder: (_) =>
             const RequestsView(key: GlobalObjectKey(PageLabel.requests)),
         modes: [NavigationItemMode.moreFull],
-      ),
-      NavigationItem(
-        glyph: AppGlyphs.connections,
-        label: PageLabel.connections,
-        builder: (_) =>
-            const ConnectionsView(key: GlobalObjectKey(PageLabel.connections)),
-        modes: [NavigationItemMode.desktop, NavigationItemMode.moreFull],
       ),
       NavigationItem(
         glyph: AppGlyphs.dns,
@@ -63,20 +77,6 @@ class Navigation implements NavigationPort {
         builder: (_) =>
             const ResourcesView(key: GlobalObjectKey(PageLabel.resources)),
         modes: [NavigationItemMode.more],
-      ),
-      NavigationItem(
-        glyph: AppGlyphs.logs,
-        label: PageLabel.logs,
-        builder: (_) => const LogsView(key: GlobalObjectKey(PageLabel.logs)),
-        modes: openLogs
-            ? [NavigationItemMode.desktop, NavigationItemMode.more]
-            : [],
-      ),
-      NavigationItem(
-        glyph: AppGlyphs.tools,
-        label: PageLabel.tools,
-        builder: (_) => const ToolsView(key: GlobalObjectKey(PageLabel.tools)),
-        modes: [NavigationItemMode.desktop, NavigationItemMode.mobile],
       ),
     ];
   }
