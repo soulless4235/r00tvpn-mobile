@@ -45,6 +45,8 @@ void main() {
 
       expect(globalState.ua, _packageInfo.ua);
       expect(globalState.ua, contains('r00tvpn/v1.2.3'));
+      expect(globalState.ua, startsWith('clash.meta '));
+      expect(globalState.ua, endsWith(' mihomo/$coreMihomoVersion'));
     });
 
     test('prefers the configured global user agent', () {

@@ -11,6 +11,8 @@ extension PackageInfoExtension on PackageInfo {
     '$appName/v$version',
     'clash-verge',
     'Platform/${Platform.operatingSystem}',
+    // Panels that read the core's version (Mikan) then send every proxy type it knows
+    'mihomo/$coreMihomoVersion',
   ].join(' ');
 }
 

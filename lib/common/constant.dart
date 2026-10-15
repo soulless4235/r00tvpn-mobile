@@ -10,6 +10,12 @@ import 'package:fl_clash/models/models.dart';
 import 'package:material_ui/material_ui.dart';
 
 const appName = 'r00tvpn';
+
+/// The mihomo release the core matches in the proxy types subscription panels hand out
+/// by core version (Mikan): the fork in core/Clash.Meta has all that 1.19.29 brought them
+/// (AnyTLS, mieru, sudoku, TrustTunnel, ShadowQUIC, XHTTP, VLESS encryption, Hysteria2
+/// Gecko). A lower claim only costs types; raise it as the core gains newer ones.
+const coreMihomoVersion = '1.19.29';
 const appHelperService = 'FlClashHelperService';
 const coreManifestName = 'manifest.json';
 const coreName = 'clash.meta';
