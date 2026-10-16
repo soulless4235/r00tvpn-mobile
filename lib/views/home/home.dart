@@ -162,6 +162,34 @@ class _NoProfiles extends StatelessWidget {
                     ),
                     label: Text(appLocalizations.addProfile),
                   ),
+                  // r00tvpn: someone who installed the app without a
+                  // subscription gets the trial offer, as on the desktop
+                  const Divider(height: 8),
+                  Text(
+                    appLocalizations.homeNoSubscriptionTitle,
+                    textAlign: TextAlign.center,
+                    style: context.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    appLocalizations.homeNoSubscriptionText,
+                    textAlign: TextAlign.center,
+                    style: context.textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.w500,
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                  OutlinedButton.icon(
+                    onPressed: () => dialogs.openUrl(telegramBotUrl),
+                    style: OutlinedButton.styleFrom(
+                      minimumSize: const Size(0, 40),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      shape: AppShape.all(12),
+                    ),
+                    icon: const GlyphIcon(AppGlyphs.send, size: 18),
+                    label: Text(appLocalizations.homeGetInTelegram),
+                  ),
                 ],
               ),
             ),

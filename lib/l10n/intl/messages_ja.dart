@@ -728,10 +728,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeEmptyTitle": MessageLookupByLibrary.simpleMessage("プロファイルがまだありません"),
     "homeExpires": MessageLookupByLibrary.simpleMessage("有効期限"),
     "homeFixedGroup": MessageLookupByLibrary.simpleMessage("ノードは自動で選ばれます"),
+    "homeGetInTelegram": MessageLookupByLibrary.simpleMessage("Telegram で入手"),
     "homeGroupsSection": MessageLookupByLibrary.simpleMessage("グループ"),
     "homeLatencyMs": m28,
     "homeNever": MessageLookupByLibrary.simpleMessage("なし"),
     "homeNoResponse": MessageLookupByLibrary.simpleMessage("応答なし"),
+    "homeNoSubscriptionText": MessageLookupByLibrary.simpleMessage(
+      "r00tvpn を3日間無料でお試しください。",
+    ),
+    "homeNoSubscriptionTitle": MessageLookupByLibrary.simpleMessage(
+      "サブスクリプションがありませんか？",
+    ),
     "homeNodes": MessageLookupByLibrary.simpleMessage("ノード"),
     "homeOtherNodes": MessageLookupByLibrary.simpleMessage("その他"),
     "homeRoutingMode": MessageLookupByLibrary.simpleMessage("ルーティングモード"),

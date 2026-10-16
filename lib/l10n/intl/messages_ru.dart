@@ -899,10 +899,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeFixedGroup": MessageLookupByLibrary.simpleMessage(
       "Узел выбирается автоматически",
     ),
+    "homeGetInTelegram": MessageLookupByLibrary.simpleMessage(
+      "Получить в Telegram",
+    ),
     "homeGroupsSection": MessageLookupByLibrary.simpleMessage("Группы"),
     "homeLatencyMs": m28,
     "homeNever": MessageLookupByLibrary.simpleMessage("Никогда"),
     "homeNoResponse": MessageLookupByLibrary.simpleMessage("нет ответа"),
+    "homeNoSubscriptionText": MessageLookupByLibrary.simpleMessage(
+      "Попробуйте r00tvpn — 3 дня бесплатно.",
+    ),
+    "homeNoSubscriptionTitle": MessageLookupByLibrary.simpleMessage(
+      "Нет подписки?",
+    ),
     "homeNodes": MessageLookupByLibrary.simpleMessage("Узлы"),
     "homeOtherNodes": MessageLookupByLibrary.simpleMessage("Другие"),
     "homeRoutingMode": MessageLookupByLibrary.simpleMessage(

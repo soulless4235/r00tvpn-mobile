@@ -136,6 +136,9 @@ const bootRecordKey = 'boot_record';
 const defaultSystemDnsFallback = '223.5.5.5';
 const double dialogCommonWidth = 300;
 const repository = 'soulless4235/r00tvpn-mobile';
+
+/// r00tvpn: the service's Telegram bot, offered while the app has no profile.
+const telegramBotUrl = 'https://t.me/r00tvpn_bot';
 const maxMobileWidth = 600;
 const maxLaptopWidth = 840;
 const defaultTestUrl = 'https://www.gstatic.com/generate_204';

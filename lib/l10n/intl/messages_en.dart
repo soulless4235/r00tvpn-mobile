@@ -862,10 +862,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeFixedGroup": MessageLookupByLibrary.simpleMessage(
       "The node is picked automatically",
     ),
+    "homeGetInTelegram": MessageLookupByLibrary.simpleMessage(
+      "Get it in Telegram",
+    ),
     "homeGroupsSection": MessageLookupByLibrary.simpleMessage("Groups"),
     "homeLatencyMs": m28,
     "homeNever": MessageLookupByLibrary.simpleMessage("Never"),
     "homeNoResponse": MessageLookupByLibrary.simpleMessage("no response"),
+    "homeNoSubscriptionText": MessageLookupByLibrary.simpleMessage(
+      "Try r00tvpn free for 3 days.",
+    ),
+    "homeNoSubscriptionTitle": MessageLookupByLibrary.simpleMessage(
+      "No subscription?",
+    ),
     "homeNodes": MessageLookupByLibrary.simpleMessage("Nodes"),
     "homeOtherNodes": MessageLookupByLibrary.simpleMessage("Other"),
     "homeRoutingMode": MessageLookupByLibrary.simpleMessage("Routing mode"),

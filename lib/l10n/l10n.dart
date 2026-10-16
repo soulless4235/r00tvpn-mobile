@@ -7757,6 +7757,36 @@ class AppLocalizations {
     );
   }
 
+  /// `No subscription?`
+  String get homeNoSubscriptionTitle {
+    return Intl.message(
+      'No subscription?',
+      name: 'homeNoSubscriptionTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try r00tvpn free for 3 days.`
+  String get homeNoSubscriptionText {
+    return Intl.message(
+      'Try r00tvpn free for 3 days.',
+      name: 'homeNoSubscriptionText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get it in Telegram`
+  String get homeGetInTelegram {
+    return Intl.message(
+      'Get it in Telegram',
+      name: 'homeGetInTelegram',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Days left on your subscription: {count}`
   String homeSubscriptionExpiring(Object count) {
     return Intl.message(
